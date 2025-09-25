@@ -1,0 +1,30 @@
+{% extends "sidebar.html" %}
+{% block content %}
+{% load static %}
+<div class='row'>
+    <div class='col-md-2'></div>
+    <div class='col-md-8 p-4  border mt-5 bg-white' style="border-radius:30px">
+        <h1>Idle Body Waight (IBW)Calculator</h2>
+      <h5><b>Height: </b>{{height}}cm</h5>
+      <h5><b>Activity level: </b>{{activity_level}}</h5>
+      <h5><b>IBW: </b>{{h2o}}L</h5>
+
+    </div>
+    <div class='col-md-4'></div>
+</div>
+    <div class='mt-5' align='justify'>
+        <b>Tips for Staying Hydrated:</b>
+        Sip Throughout the Day: Instead of chugging large amounts at once, sip water consistently throughout the day.
+        <br>
+        Incorporate Hydrating Foods: Include water-rich foods like fruits and vegetables in your diet.
+        <br>
+        Carry a Reusable Water Bottle: Keep water easily accessible wherever you go.
+        <br>
+        Listen to Your Body: Pay attention to thirst cues, and don't wait until you're thirsty to drink water.
+        <script>
+            x = document.getElementById("HealthCal")
+            sidebarLink = document.querySelectorAll('.sidebar__list a')
+            sidebarLink.forEach(l => l.classList.remove('active-link'))
+            x.classList.add('active-link')
+        </script>
+    {% endblock %}

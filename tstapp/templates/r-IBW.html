@@ -1,0 +1,31 @@
+{% extends "sidebar.html" %}
+{% block content %}
+{% load static %}
+<div class='row'>
+    <div class='col-md-2'></div>
+    <div class='col-md-8 p-4  border mt-5 bg-white' style="border-radius:30px">
+        <h1>Idle Body Waight (IBW)Calculator</h2>
+      <h5><b>Height: </b>{{height}}cm</h5>
+      <h5><b>Gender: </b>{{gender}}</h5>
+      <h5><b>IBW: </b>{{ibw}}kg</h5>
+
+    </div>
+    <div class='col-md-4'></div>
+</div>
+    <div class='mt-5' align='justify'>
+        Most everyone has at some point tried to lose weight, or at least known somebody who has. This is largely due to the perception of an "ideal" body weight, which is often based on what we see promoted through various media such as social media, TV, movies, magazines, etc. Although ideal body weight (IBW) today is sometimes based on perceived visual appeal, IBW was actually introduced to estimate dosages for medical use, and the formulas that calculate it are not at all related to how a person looks at a given weight. It has since been determined that the metabolism of certain drugs is more based on IBW than it is total body weight. Today, IBW is also used widely throughout sports, since many sports classify people based on their body weight.
+<br>
+Note that IBW is not a perfect measurement. It does not consider the percentages of body fat and muscle in a person's body. This means that it is possible for highly fit, healthy athletes to be considered overweight based on their IBW. This is why IBW should be considered with the perspective that it is an imperfect measure and not necessarily indicative of health, or a weight that a person should necessarily strive toward; it is possible to be over or under your "IBW" and be perfectly healthy.
+<br>
+How much a person should weigh is not an exact science. It is highly dependent on each individual. Thus far, there is no measure, be it IBW, body mass index (BMI), or any other that can definitively state how much a person should weigh to be healthy. They are only references, and it's more important to adhere to making healthy life choices such as regular exercise, eating a variety of unprocessed foods, getting enough sleep, etc. than it is to chase a specific weight based on a generalized formula.
+<br>
+That being said, many factors can affect the ideal weight; the major factors are listed below. Other factors include health conditions, fat distribution, progeny, etc.
+    </div>
+    
+    <script>
+        x = document.getElementById("HealthCal")
+        sidebarLink = document.querySelectorAll('.sidebar__list a')
+        sidebarLink.forEach(l => l.classList.remove('active-link'))
+        x.classList.add('active-link')
+    </script>
+    {% endblock %}

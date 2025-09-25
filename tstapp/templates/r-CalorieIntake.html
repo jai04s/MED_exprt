@@ -1,0 +1,50 @@
+{% extends "sidebar.html" %}
+{% block content %}
+{% load static %}
+<div class='row'>
+    <div class='col-md-2'></div>
+    <div class='col-md-8 p-4  border mt-5 bg-white' style="border-radius:30px">
+        <h1>Calorie Intake</h2>
+
+      <h5><b>Weight: </b>{{weight}}kg</h5>
+      <h5><b>Height: </b>{{height}}cm</h5>
+      <h5><b>Age: </b>{{age}}years</h5>
+      <h5><b>Gender: </b>{{gender}}</h5>
+      <h5><b>Calorie Intake: </b>{{calin}}Calories</h5>
+
+    </div>
+    <div class='col-md-4'></div>
+</div>
+    <div class='mt-5' align='justify'>
+        The value obtained from these equations is the estimated number of calories a person 
+        can consume in a day to maintain their body-weight, assuming they remain at rest. 
+        This value is multiplied by an activity factor (generally 1.2-1.95) dependent on a 
+        person's typical levels of exercise, which accounts for times during the day when a 
+        person is not at rest. 1 pound, or approximately 0.45 kg, equates to about 3,500 calories. 
+        As such, in order to lose 1 pound per week, it is recommended that 500 calories be shaved 
+        off the estimate of calories necessary for weight maintenance per day. For example, if a 
+        person has an estimated allotment of 2,500 calories per day to maintain body-weight, 
+        consuming 2,000 calories per day for one week would theoretically result in 3,500 calories 
+        (or 1 pound) lost during the period.
+        <br>
+        It is important to remember that proper diet and exercise is largely accepted as the best 
+        way to lose weight. It is inadvisable to lower calorie intake by more than 1,000 calories 
+        per day, as losing more than 2 pounds per week can be unhealthy, and can result in the 
+        opposite effect in the near future by reducing metabolism. Losing more than 2 pounds a week 
+        will likely involve muscle loss, which in turn lowers BMR, since more muscle mass results in 
+        higher BMR. Excessive weight loss can also be due to dehydration, which is unhealthy. Furthermore, 
+        particularly when exercising in conjunction with dieting, maintaining a good diet is important, 
+        since the body needs to be able to support its metabolic processes and replenish itself. Depriving 
+        the body of the nutrients it requires as part of heavily unhealthy diets can have serious detrimental 
+        effects, and weight lost in this manner has been shown in some studies to be unsustainable, since the 
+        weight is often regained in the form of fat (putting the participant in a worse state than when 
+        beginning the diet). As such, in addition to monitoring calorie intake, it is important to maintain 
+        levels of fiber intake as well as other nutritional necessities to balance the needs of the body.
+    </div>
+    <script>
+        x = document.getElementById("HealthCal")
+        sidebarLink = document.querySelectorAll('.sidebar__list a')
+        sidebarLink.forEach(l => l.classList.remove('active-link'))
+        x.classList.add('active-link')
+    </script>
+    {% endblock %}

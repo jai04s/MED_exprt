@@ -1,0 +1,65 @@
+
+{% extends "sidebar.html" %}
+{% block content %}
+{% load static %}
+<div class="card frm">
+    <!-- <div class="card-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbAw88dimxGAKnVvSHBQmvCKedguiVpF4dQQ&s"
+            class="card-img-top" style= "object-fit: cover; width: 100%; height: width;">
+    </div> -->
+    <form class="card-form">
+        <div class="flex-container">
+            <div class="left-container">
+               <div class="input">
+                {% comment %} {% if usr.img %}
+                    <img url="{{usr.img.url}}">
+                    <input type="file" name="nm" id="pfr-img"/>
+                    <label class="input-img" for="pfr-img"><i class="bi bi-pencil-fill"></i>xyz</label>
+                {% else %} {% endcomment %}
+                    <img url='{% static "img\default-img" %}'>
+                    
+                    <input type="file" name="nm" id="pfr-img"/>
+                    <label class="input-img" for="pfr-img"><i class="bi bi-pencil-fill"></i>abc</label>
+                {% comment %} {% endif %} {% endcomment %}
+                    
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="input">
+            <input type="text" class="input-field" name="nm" id="usrnm" value="{{usr.name}}" required />
+            <label class="input-label">Name</label>
+        </div>
+        <div class="input">
+            <input type="date" class="input-field" placeholder="" name="dob" id="dob" value="{{usr.dob}}" required />
+            <label class="input-label " style="margin-top: -10px;">DOB</label>
+        </div>
+        <div class="input">
+            <input type="text" class="input-field" name="edu" id="edu" value="{{usr.edu}}" required />
+            <label class="input-label">Education level</label>
+        </div>
+        <div class="input">
+            <input type="text" class="input-field" id="fedu" name="fedu" value="{{usr.edufld}}" required />
+            <label class="input-label">Field Of Education</label>
+        </div>
+        <!-- <div class="input">
+            <input type="password" class="input-field" required />
+            <label class="input-label">Password</label>
+        </div> -->
+        <div class="action">
+            <button class="action-button">Save</button>
+        </div>
+            </div>
+        </div>
+        
+        
+    </form>
+    {% comment %} <div class="card-info">
+        <p>By signing up you are agreeing to our <a href="#">Terms and Conditions</a></p>
+    </div> {% endcomment %}
+</div>
+{% if rmsg %}
+<script>
+    alert("{{rmsg}}")
+</script>
+{% endif %}
+{% endblock %}

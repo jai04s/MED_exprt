@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{%static 'fpass.css'%}" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="flx">
+        <div class="inner">
+            <form action="" class="frm" method="POST">
+                {% csrf_token %}
+                <h1>Forgot <br>
+                Your Password?</h1>
+                <input type="email" class="id" placeholder="Email" name='em'>
+                <br>
+                <button type="submit">Reset</button>
+                
+            </form>
+        </div>
+        <div class="inner">
+            <img class="photo" src="{% static "img/forgetpass.png" %}" alt="img">
+
+        </div>
+    </div>
+    {% if rmsg %}
+    <script>
+        alert("{{rmsg}}")
+    </script>
+    {% endif %}
+
+</body>
+
+</html>

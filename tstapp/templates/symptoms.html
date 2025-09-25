@@ -1,0 +1,23 @@
+{% extends "body.html" %}
+{% block symptom %}
+<div>
+    <h3>{{body_part}}</h3>
+{% comment %} <div class='card' style="overflow-y:auto;max-height:550px;font-size: 1.125rem; text-align:justify;margin-right:1px;margin-left:auto; "> {% endcomment %}
+    
+    <form method="post" action="{% url 'disease'%}">
+        {% csrf_token %}
+    <div class='card symptom' style="overflow-y:auto;max-height:500px;font-size: 1.125rem;">
+    <table>
+        {% for symptom in symptoms %}
+        <tr style="padding:3px;">
+        <td style=" vertical-align:top"><input type="checkbox" id=symptom_{{symptom.id}} name="symptoms" value={{symptom.id}}></td>
+        <td style="text-align:left;"><label>{{symptom.name}}</label></td>
+        <tr>
+        {% endfor %}
+        </table>
+    </div>
+    <button class="btn btn-primary btn-lg mt-3" type="submit" style="width:90%">Submit</button>
+    </form>
+{% comment %} </div> {% endcomment %}
+</div>
+{% endblock %}

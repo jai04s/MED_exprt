@@ -1,0 +1,39 @@
+
+{% extends "sidebar.html" %}
+{% block content %}
+{% load static %}
+<div class="card frm">
+            <div class="right-container">
+                <div class="input">
+                    <input type="text" class="form-control" name="nm" id="usrnm" value="{{usr.name}}" required readonly />
+                    <label >Name</label>
+                </div>
+                <div class="input">
+                    <input type="text" class="form-control" name="id" id="usrid" value="{{usr.email}}" required readonly />
+                    <label >ID</label>
+                </div>
+                <div class="input">
+                    <input type="text" class="form-control" style="height:200px" name="fb" id="usfb" required />
+                    <label >Feedback</label>
+                </div>
+                <div class="action" >
+                    <button class="action-button" > Submit </button>
+                </div>
+            </div>
+        </div>
+        
+        
+    {% comment %} </form> {% endcomment %}
+</div>
+{% if rmsg %}
+<script>
+    alert("{{rmsg}}")
+</script>
+{% endif %}
+<script>
+    x = document.getElementById("ExpertSys")
+    sidebarLink = document.querySelectorAll('.sidebar__list a')
+    sidebarLink.forEach(l => l.classList.remove('active-link'))
+    {% comment %} x.classList.add('active-link') {% endcomment %}
+</script>
+{% endblock %}

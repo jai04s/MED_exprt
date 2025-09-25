@@ -1,0 +1,73 @@
+{% extends "sidebar.html" %}
+{% block content %}
+{% load static %}
+<div class='row'>
+<div class='col-md-8 p-4  border mt-5 bg-white ' style="border-radius:30px">
+  <h1> BMI Calcultor</h1>
+    <h5><b>Weight: </b>{{weight}}kg</h5>
+    <h5><b>Height: </b>{{height}}cm</h5>
+    
+
+
+    {% if msg == 'underweight' %}
+    <div class="alert alert-info">
+       <p>You are underweight.</p>
+        Bmi: {{bmi}}
+    </div>
+
+    {% elif msg == 'normal' %}
+    <div class="alert alert-success">
+       <p>You have a normal weight.</p>
+       Bmi: {{bmi}}
+    </div>
+
+    {% elif msg == 'overweight' %}
+    <div class="alert alert-warning">
+       <p>You are overweight.</p>
+       Bmi: {{bmi}}
+    </div>
+
+    {% elif msg == 'obese' %}
+    <div class="alert alert-danger">
+       <p>You are obese.</p>
+       Bmi: {{bmi}}
+    </div>
+
+    {% endif %}
+    </div>
+    <div class='col-md-4'>
+        <table class="table p-2 shadow " style="margin-top:97px; margin-left:30px;">
+            <thead>
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">BMI range</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="bg-info-subtle">Underweight</th>
+                <td class="bg-info-subtle">Less then 18.5</td>
+              </tr>
+              <tr >
+                <th scope="row" class="bg-success-subtle">Normal</th>
+                <td class="bg-success-subtle">18.5 - 24.9</td>
+              </tr>
+              <tr class='' >
+                <th scope="" class="bg-warning" >Overweight</th>
+                <td class="bg-warning">25 - 29.9</td>
+              </tr>
+              <tr class='--bs-danger'>
+                <th scope="row" class="bg-danger">Obese</th>
+                <td class="bg-danger">30 and above</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+<script>
+  x = document.getElementById("HealthCal")
+  sidebarLink = document.querySelectorAll('.sidebar__list a')
+  sidebarLink.forEach(l => l.classList.remove('active-link'))
+  x.classList.add('active-link')
+</script>
+{% endblock %}

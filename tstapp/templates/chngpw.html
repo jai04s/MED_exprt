@@ -1,0 +1,26 @@
+{% extends "profile.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <h1>
+            Change password
+        </h1>
+        <hr>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="password" class="form-control" name="opw" placeholder="Old password" required><br>
+            <input type="password" class="form-control" name="npw" placeholder="New password" required><br>
+            <input type="password" class="form-control" name="rpw" placeholder="Re-enter new password" required><br>
+            <button type="submit">Change Password</button>
+        </form>
+
+    </div>
+    <div class="col-3"></div>
+</div>
+{% if rmsg %}
+<script>
+    alert("{{rmsg}}")
+</script>
+{% endif %}
+{% endblock content %}

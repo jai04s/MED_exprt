@@ -1,0 +1,68 @@
+
+{% extends "sidebar.html" %}
+{% block content %}
+{% load static %}
+<div class="card frm">
+    <!-- <div class="card-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbAw88dimxGAKnVvSHBQmvCKedguiVpF4dQQ&s"
+            class="card-img-top" style= "object-fit: cover; width: 100%; height: width;">
+    </div> -->
+    {% comment %} <form class="card-form"> {% endcomment %}
+        <div class="flex-container">
+            {% comment %} <div class="left-container">
+               <div class="input">
+                {% if usr.img %}
+                    <img url="{{usr.img.url}}">
+                    <input type="file" name="nm" id="pfr-img"/>
+                    <label class="input-img" for="pfr-img"><i class="bi bi-pencil-fill"></i>xyz</label>
+                {% else %}
+                    <img url="{{usr.img.url}}" style="height:120px;">
+                    
+                    <input type="file" name="nm" id="pfr-img"/>
+                    <label class="input-img" for="pfr-img">{{usr.img.url}}</label>
+                {% endif %}
+                    
+                </div>
+            </div> {% endcomment %}
+            <div class="right-container">
+                <div class="input">
+            <input type="text" class="input-field" name="nm" id="usrnm" value="{{usr.name}}" required />
+            <label class="input-label">Name</label>
+        </div>
+        <div class="input">
+            <input type="date" class="input-field" placeholder="" name="dob" id="dob" value="{{usr.dob}}" required />
+            <label class="input-label " style="margin-top: -10px;">DOB</label>
+        </div>
+        <div class="input">
+            <input type="text" class="input-field" name="edu" id="edu" value="{{usr.edu}}" required />
+            <label class="input-label">Education level</label>
+        </div>
+        <div class="input">
+            <input type="text" class="input-field" id="fedu" name="fedu" value="{{usr.edufld}}" required />
+            <label class="input-label">Field Of Education</label>
+        </div>
+        <!-- <div class="input">
+            <input type="password" class="input-field" required />
+            <label class="input-label">Password</label>
+        </div> -->
+        <div class="action">
+            <button class="action-button"><i class="bi bi-pencil-fill" style="padding:7px;"></i> SAVE </button>
+        </div>
+            </div>
+        </div>
+        
+        
+    {% comment %} </form> {% endcomment %}
+</div>
+{% if rmsg %}
+<script>
+    alert("{{rmsg}}")
+</script>
+{% endif %}
+<script>
+    x = document.getElementById("ExpertSys")
+    sidebarLink = document.querySelectorAll('.sidebar__list a')
+    sidebarLink.forEach(l => l.classList.remove('active-link'))
+    {% comment %} x.classList.add('active-link') {% endcomment %}
+</script>
+{% endblock %}

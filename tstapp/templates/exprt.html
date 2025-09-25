@@ -1,0 +1,44 @@
+{% extends "sidebar.html" %}
+{% block content %}
+{% load static %}
+<div class='row'>
+<div class='col-md-3'></div>
+<div class='col-md-6'>
+<form method="POST" action=''>
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="symptom" class="form-label"> <span style="color:hsl(228, 18%, 16%)">Symptom</span>
+        <i class="bi bi-info-circle-fill" title="use '_' insted of space between words and separate
+         them with commas. ig: itching, skin_rash, nodal_skin_eruptions"></i>
+        </label>
+        <input class="form-control" name='symptom' aria-label="default input example" 
+        value="{{ip}}" style="border: 2px solid hsl(228, 18%, 16%) " required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <hr>
+    {% if '{{disease}}' %}
+    <h1 style="color:hsl(210, 3.00%, 38.80%)">{{disease}}</h1>
+    {% endif %}
+
+    {% if '{{med}}' %}
+    <p style="color:hsl(210, 3.00%, 38.80%)" ><b>Medicine: </b>{{med}}</p>
+    {% endif %}
+
+    {% if '{{diet}}' %}
+    <p style="color:hsl(210, 3.00%, 38.80%)">{{diet}}</p>
+    {% endif %}
+</form>
+</div>
+<div class='col-md-3'></div>
+{% if rmsg %}
+    <script>
+        alert("{{rmsg}}")
+    </script>
+{% endif %}
+<script>
+    x = document.getElementById("ExpertSys")
+    sidebarLink = document.querySelectorAll('.sidebar__list a')
+    sidebarLink.forEach(l => l.classList.remove('active-link'))
+    x.classList.add('active-link')
+</script>
+{% endblock %}

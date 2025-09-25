@@ -1,0 +1,80 @@
+{% extends "sidebar.html" %}
+{% block content %}
+{% load static %}
+<div class="row" style="margin:10px">
+    <div class="col-sm-4">
+        <div class="card" style="width: 98%;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUR7N_xf8X7U8RkcXzAwYVokp-LYWq8zuffidMkFH8h5R0oZW_eYP6cEjPbrkyX0xL9Z8&usqp=CAU" class="card-img-top"
+             style="height:150px" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">BMI</h5>
+                <p class="card-texvt">Body mass index (BMI) is a medical screening tool that estimates body fat based on a person's height and weight</p>
+                <a href="{% url "bmi" %}" class="btn btn-primary">Try now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="card" style="width: 98%;">
+            <img src='{% static "img\bmr.png" %}' style="height:145px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">BMR</h5>
+                <p class="card-text">Basal Metabolic Rate (BMR) is the amount of energy your body needs to maintain homeostasis, or to function while at rest.</p>
+                <a href="{% url "bmr" %}" class="btn btn-primary">Try now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="card" style="width: 98%;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaXJkG97NPcvB0ZTq7HhDQryPO2juB1LWJKg&s"
+            style="height:170px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Calorie Intake</h5>
+                <p class="card-text">Caloric intake is the amount of energy consumed through food and drinks.</p>
+                <a href="{% url "CalorieIntake" %}" class="btn btn-primary">Try now</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin:10px">
+    <div class="col-sm-4">
+        <div class="card" style="width: 98%;">
+            <img src='{% static "img\IBW.jpg" %}' style="height:170px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Idle Body Weight Calculator</h5>
+                <p class="card-text">Ideal body weight (IBW) is the weight that is associated with the longest life expectancy for a given height</p>
+                <a href="{% url "ibw" %}" class="btn btn-primary">Try now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="card" style="width: 98%;">
+            <img src='{% static "img\water-intake.png" %}' style="height:170px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Hydration Calculator</h5>
+                <p class="card-text">A hydration calculator is a tool that estimates how much water you should drink based on your physical traits and activity level.</p>
+                <a href="{% url "HydrationCal" %}" class="btn btn-primary">Try now</a>
+            </div>
+        </div>
+    </div>
+
+    {% comment %} <div class="col-sm-4">
+        <div class="card" style="width: 98%;">
+            <img src='{% static "img\bp.jpg" %}' class="card-img-top" alt="... " height="150px">
+            <div class="card-body">
+                <h5 class="card-title">Blood Pressure Calculator</h5>
+                <p class="card-text">A tool that analyzes your blood pressure readings to provide a summary and recommendations.</p>
+                <a href="#" class="btn btn-primary">Try now</a>
+            </div>
+        </div>
+    </div> {% endcomment %}
+</div>
+<script>
+    x = document.getElementById("HealthCal")
+    sidebarLink = document.querySelectorAll('.sidebar__list a')
+    sidebarLink.forEach(l => l.classList.remove('active-link'))
+    x.classList.add('active-link')
+</script>
+{% endblock %}

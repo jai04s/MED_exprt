@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background: url('https://img.freepik.com/premium-photo/glitched-fluid-colors-abstract-glitch-background-futuristic-wallpaper-cyberpunk-concept-colorful-techno-backdrop-with-aesthetics-vaporwave-style-80-s_946763-92.jpg');
+            background-size:cover;          
+        }
+        .flx{
+            display: flex;
+            justify-content:center;
+            width: 55%;
+            margin: 70px auto;
+            align-items: center;
+            border: 1px dotted;
+            height: 100%;
+            border-radius: 3%;
+            background-color: #F3F7FB;
+            box-shadow: 0 0 10px grey;
+            
+        }
+        .tc{
+            margin-top: 20px;
+        }
+        .photo{
+            width: 100%;
+            height: 300px;
+            border-radius: 7%;
+            margin-top: 30px;
+
+        }
+        .inrdiv{
+            width: 50%;
+            height: 400px;
+            /* border: 1px dotted red; */
+            border-radius: 7%;
+            
+        }
+        .ip{
+            width: 70%;
+            border: 1px solid black;
+            outline: 0;
+            border-top: 0px;
+            border-left: 0px;
+            border-right: 0px;
+            margin: 5px;
+            padding: 7px;
+        }
+        .ip:hover{
+            border: 0;
+            outline: 0;
+            border-bottom: 1px solid black;
+
+        }
+        form{
+            width: 300px;
+            margin: 50px auto;
+        }
+        .submit{
+            padding: 15px 25px;
+            font-size: 10px;
+            color: white;
+            margin-top: 20px;
+            background-color: rgb(0, 94, 255);
+            border: 0px;
+            border-radius: 7%;
+        }
+        .link{
+            /* text-decoration: none; */
+            color: black;
+        }
+        
+    </style>
+    <title>Sign up</title>
+
+</head>
+<body>
+    <div class="flx">
+    <div class="inrdiv">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <h1 style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Sign up</h1>
+            <input class="ip" type="text" name='NM' placeholder="Your Name" required><br>
+            <input type="email" class="ip" name="EM" placeholder="Your Email" required><br>
+            <input type="password" class="ip" name="pass" placeholder="Password" required><br>
+            <input type="password" class="ip" name="repass" placeholder="Repeat your password" required><br>
+            <input type="checkbox" class="tc" required><label>I agree all statements in <a href="#" class="link">Terms of service</a></label><br>
+            <!-- <input type="submit" class="submit" placeholder="Register"> -->
+            <button type="submit" class="submit" >Register</button>
+
+        </form>
+    </div>
+    <div class="inrdiv" align="center">
+        <img class="photo" src="https://i.pinimg.com/originals/b9/30/c1/b930c1c4d7a3ac78403994b250dbe9e1.gif" alt="img *ERROR">
+        <a href="http://127.0.0.1:8000/login" class="link">I am already a member</a>
+    </div>
+    </div>
+
+    {% if rmsg %}
+    <script>
+        alert("{{rmsg}}")
+    </script>
+    {% endif %}
+</body>
+</html>

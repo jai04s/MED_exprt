@@ -1,0 +1,46 @@
+{% extends "sidebar.html" %}
+{% block content %}
+{% load static %}
+<div class='row'>
+    <div class='col-md-2'></div>
+    <div class='col-md-8 p-4  border mt-5 bg-white ' style="border-radius:30px; border:2px solid hsl(210, 1.10%, 62.70%);">
+      <h1>Basal Metabolic Rate (BMR)</h1>
+      <form method="POST" action=''>
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Weight</label>
+          <input class="form-control" type="float" name='wt' value='{{weight}}' style="border: 2px solid hsl(210, 1.10%, 62.70%) " aria-label="default input example" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Height</label>
+          <input class="form-control" type="float" name='ht' value='{{height}}' style="border: 2px solid hsl(210, 1.10%, 62.70%) " aria-label="default input example" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Age</label>
+            <input class="form-control" type="int" name='age' value='{{age}}' style="border: 2px solid hsl(210, 1.10%, 62.70%)" aria-label="default input example" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Gender</label>
+            <select class="form-select" aria-label="Default select example" style="border: 2px solid hsl(210, 1.10%, 62.70%) " name="gender" value='{{gender}}' required>
+                {% comment %} <option hidden>Open this select</option> {% endcomment %}
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+    
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    {% if '{{bmr}}' %}
+    <h5>{{bmr}}</h5>
+    {% endif %}
+    </div>
+    <div class='col-md-2'></div>
+    </div>
+    <script>
+      x = document.getElementById("HealthCal")
+      sidebarLink = document.querySelectorAll('.sidebar__list a')
+      sidebarLink.forEach(l => l.classList.remove('active-link'))
+      x.classList.add('active-link')
+  </script>
+    {% endblock %}
